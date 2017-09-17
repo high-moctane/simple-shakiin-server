@@ -1,0 +1,2 @@
+# simple-shakiin-server
+(｀･ω･´)
