@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-var port = flag.String("p", "80", "set port number")
+var port = flag.String("p", ":80", "set port number")
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	if _, err := fmt.Fprintf(w, "(｀･ω･´)"); err != nil {
@@ -19,7 +19,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", handler)
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe(*port, nil); err != nil {
 		log.Println("simple-shakiin-server:", err)
 	}
 }
